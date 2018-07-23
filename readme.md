@@ -67,7 +67,7 @@ Ensure you finish all the setup steps and have your laravel app working with mon
 - `composer require`
 
 ```php
-composer require coolsam/world
+composer require coolsam/laravel-mongodb-world
 ```
 
 - Add Service Provider into `config/app.php`

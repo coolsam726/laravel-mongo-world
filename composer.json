@@ -1,5 +1,5 @@
 {
-    "name": "coolsam/world",
+    "name": "coolsam/laravel-mongodb-world",
     "description": "Provide countries, states, and cities relations database for mongodb in laravel using jenssegers/laravel-mongodb",
     "keywords": [ "world", "country", "city", "region", "locale", "mongodb","laravel", "laravel-mongodb"],
     "type": "library",
