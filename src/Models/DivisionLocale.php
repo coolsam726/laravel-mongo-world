@@ -1,8 +1,8 @@
 <?php
 
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 /**
  * Division Locale
@@ -16,9 +16,10 @@ class DivisionLocale extends Model
      * @var string
      */
     protected $table = 'world_divisions_locale';
+    protected $collection = 'world_divisions_locale';
 
     public function division()
     {
-        return $this->belongsTo(Division::class);
+        return $this->belongsTo(Division::class,'division_id','id');
     }
 }

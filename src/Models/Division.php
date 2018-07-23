@@ -1,9 +1,9 @@
 <?php
 
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Khsing\World\WorldTrait;
+use Jenssegers\Mongodb\Eloquent\Model;
+use Coolsam\World\WorldTrait;
 
 /**
  * Division
@@ -18,6 +18,7 @@ class Division extends Model
      * @var string
      */
     protected $table = 'world_divisions';
+    protected $collection = 'world_divisions';
 
     /**
      * append names
@@ -28,12 +29,12 @@ class Division extends Model
 
     public function country()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class,'country_id','id');
     }
 
     public function cities()
     {
-        return $this->hasMany(City::class);
+        return $this->hasMany(City::class,'division_id','id');
     }
 
     public function children()
@@ -48,7 +49,7 @@ class Division extends Model
 
     public function locales()
     {
-        return $this->hasMany(DivisionLocale::class);
+        return $this->hasMany(DivisionLocale::class,'division_id','id');
     }
     /**
      * Get Division by name

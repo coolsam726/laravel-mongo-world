@@ -1,6 +1,6 @@
 <?php
 
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +23,6 @@ class ContinentLocale extends Model
      */
     public function continent()
     {
-        return $this->belongsTo(Continent::class);
+        return $this->belongsTo(Continent::class,'continent_id','id');
     }
 }

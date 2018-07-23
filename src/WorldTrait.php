@@ -1,8 +1,8 @@
 <?php
 
-namespace Khsing\World;
+namespace Coolsam\World;
 
-use Khsing\World\Exceptions\InvalidCodeException;
+use Coolsam\World\Exceptions\InvalidCodeException;
 
 trait WorldTrait
 {

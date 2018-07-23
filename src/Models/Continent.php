@@ -1,9 +1,9 @@
 <?php
 
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Khsing\World\WorldTrait;
+use Jenssegers\Mongodb\Eloquent\Model;
+use Coolsam\World\WorldTrait;
 
 /**
  * Continent
@@ -17,6 +17,7 @@ class Continent extends Model
      * @var string
      */
     protected $table = 'world_continents';
+    protected $collection = 'world_continents';
 
     /**
      * append names
@@ -32,7 +33,7 @@ class Continent extends Model
      */
     public function countries()
     {
-        return $this->hasMany(Country::class);
+        return $this->hasMany(Country::class,'continent_id', 'id');
     }
 
     public function children()
@@ -52,7 +53,7 @@ class Continent extends Model
      */
     public function locales()
     {
-        return $this->hasMany(ContinentLocale::class);
+        return $this->hasMany(ContinentLocale::class,'continent_id','id');
     }
 
     /**

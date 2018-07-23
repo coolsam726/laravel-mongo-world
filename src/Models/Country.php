@@ -1,8 +1,8 @@
 <?php
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Khsing\World\WorldTrait;
+use Jenssegers\Mongodb\Eloquent\Model;
+use Coolsam\World\WorldTrait;
 
 /**
  * Country
@@ -16,6 +16,7 @@ class Country extends Model
      * @var string
      */
     protected $table = 'world_countries';
+    protected $collection = 'world_countries';
 
     /**
      * The attributes that should be casted to native types.
@@ -35,12 +36,12 @@ class Country extends Model
 
     public function divisions()
     {
-        return $this->hasMany(Division::class);
+        return $this->hasMany(Division::class,'country_id','id');
     }
 
     public function cities()
     {
-        return $this->hasMany(City::class);
+        return $this->hasMany(City::class,'country_id','id');
     }
 
     /**
@@ -50,7 +51,7 @@ class Country extends Model
      */
     public function continent()
     {
-        return $this->belongsTo(Continent::class);
+        return $this->belongsTo(Continent::class,'continent_id','id');
     }
 
     /**
@@ -78,7 +79,7 @@ class Country extends Model
 
     public function locales()
     {
-        return $this->hasMany(CountryLocale::class);
+        return $this->hasMany(CountryLocale::class,'country_id','id');
     }
 
     /**

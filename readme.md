@@ -1,6 +1,6 @@
-# Laravel World Database
+# Laravel World Database for Laravel-MongoDB
 
-This package focused on World Countries, Regions, and Cities database with locale support for Laravel.
+This package focused on World Countries, Regions, and Cities database with locale support for Laravel using the Laravel-MongoDB package by Jenssegers.
 
 
 ## Conceptions
@@ -37,7 +37,7 @@ Country spec attributes:
 Example:
 
 ```php
-use Khsing\World\World;
+use Coolsam\World\World;
 $china = World::getByCode('cn');
 $china->setLocale('zh-cn');
 $china->name; // China
@@ -59,12 +59,15 @@ $china->local_currency_name; // 人民币
 
 Right now, only English(default and fallback) and Chinese-Simp `zh-cn` are supported. Locale settings is following Laravel project settings in `config/app.php`.
 
+##Dependencies
+- This package depends on jenssegers/laravel-mongodb<https://github.com/jenssegers/laravel-mongodb>.
+Ensure you finish all the setup steps and have your laravel app working with mongodb before you proceed to setup.
 ## Setup
 
 - `composer require`
 
 ```php
-composer require khsing/world
+composer require coolsam/world
 ```
 
 - Add Service Provider into `config/app.php`
@@ -72,12 +75,12 @@ composer require khsing/world
 ```php
 'providers' => [
     // ...
-    Khsing\World\WorldServiceProvider::class,
+    Coolsam\World\WorldServiceProvider::class,
 ]
 ```
 - Publish and init
 ```php
-php artisan vendor:publish --force --provider="Khsing\World\WorldServiceProvider"
+php artisan vendor:publish --force --provider="Coolsam\World\WorldServiceProvider"
 composer dump-autoload
 php artisan world:init
 ```
@@ -86,26 +89,26 @@ php artisan world:init
 
 - get all Continent
 ```php
-use Khsing\World\World;
+use Coolsam\World\World;
 
 World::Continents()
 
 ```
 - get all Countries
 ```php
-use Khsing\World\World;
+use Coolsam\World\World;
 
 World::Countries()
 ```
 - get country by code
 ```php
-use Khsing\World\World;
+use Coolsam\World\World;
 
 Country::getByCode('cn');
 ```
 - get countries belong to a continent
 ```php
-use Khsing\World\Models\Continent;
+use Coolsam\World\Models\Continent;
 
 $asia = Continent::getByCode('AS');
 $countries = $asia->countries()->get();
@@ -139,6 +142,6 @@ $regsions = $china->children();
 
 ## About
 
-This package published under MIT license. If you have any question or suggestion, please feel free to submit a issue, or email me Guixing<khsing.cn(AT)gmail.com>. 
+This package published under MIT license. If you have any question or suggestion, please feel free to submit a issue, or email me Sam Maosa<maosa.sam(AT)gmail.com>. 
 
-Have a nice day. 
+Good luck being a real Big-Data artisan.

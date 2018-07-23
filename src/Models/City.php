@@ -1,8 +1,8 @@
 <?php
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Khsing\World\WorldTrait;
+use Jenssegers\Mongodb\Eloquent\Model;
+use Coolsam\World\WorldTrait;
 
 /**
  * City
@@ -16,6 +16,7 @@ class City extends Model
      * @var string
      */
     protected $table = 'world_cities';
+    protected $collection = 'world_cities';
 
     /**
      * append names
@@ -26,12 +27,12 @@ class City extends Model
     
     public function country()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class, 'country_id', 'id');
     }
     
     public function division()
     {
-        return $this->belongsTo(division::class);
+        return $this->belongsTo(Division::class,'division_id', 'id');
     }
 
     public function children()
@@ -50,7 +51,7 @@ class City extends Model
 
     public function locales()
     {
-        return $this->hasMany(CityLocale::class);
+        return $this->hasMany(CityLocale::class, 'city_id','id');
     }
 
     /**

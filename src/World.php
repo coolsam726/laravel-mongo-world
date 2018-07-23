@@ -1,10 +1,11 @@
 <?php
 
-namespace Khsing\World;
+namespace Coolsam\World;
 
-use Khsing\World\Models\Continent;
-use Khsing\World\Models\Country;
-use Khsing\World\Models\Division;
+use Coolsam\World\Models\City;
+use Coolsam\World\Models\Continent;
+use Coolsam\World\Models\Country;
+use Coolsam\World\Models\Division;
 
 /**
  * World
@@ -51,6 +52,6 @@ class World
                 ['code', $code ],
             ]);
         }
-        throw new \Khsing\World\Exceptions\InvalidCodeException("Code is invalid");
+        throw new \Coolsam\World\Exceptions\InvalidCodeException("Code is invalid");
     }
 }

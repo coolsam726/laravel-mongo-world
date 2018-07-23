@@ -1,5 +1,5 @@
 <?php
-namespace Khsing\World;
+namespace Coolsam\World;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -38,8 +38,8 @@ class WorldServiceProvider extends ServiceProvider
      */
     private function publishMigrations()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/');
-        // $this->publishes([__DIR__ . '/../database/migrations/' => base_path('database/migrations')], 'migrations');
+//        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/');
+         $this->publishes([__DIR__ . '/../database/migrations/' => base_path('database/migrations')], 'migrations');
     }
 
     /**
@@ -53,7 +53,7 @@ class WorldServiceProvider extends ServiceProvider
     private function registerCommands()
     {
         $this->commands([
-            \Khsing\World\Console\InitCommand::class,
+            \Coolsam\World\Console\InitCommand::class,
         ]);
     }
 }

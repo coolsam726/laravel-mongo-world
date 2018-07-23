@@ -1,6 +1,6 @@
 <?php
 
-namespace Khsing\World\Exceptions;
+namespace Coolsam\World\Exceptions;
 
 /**
  * InvalidCodeException.

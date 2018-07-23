@@ -1,6 +1,6 @@
 <?php
 
-namespace Khsing\World\Console;
+namespace Coolsam\World\Console;
 
 use Illuminate\Console\Command;
 
@@ -20,7 +20,7 @@ class InitCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Initialize';
+    protected $description = 'Initialize: Run migrations and seeders';
     /**
      * Create a new command instance.
      *
@@ -40,7 +40,7 @@ class InitCommand extends Command
     {
         $this->info('Execute migrate first, migrating...');
         $this->call('migrate');
-        $this->info('Seeding datas');
+        $this->info('Seeding tables');
         $this->call('db:seed',["--class"=>"WorldTablesSeeder"]);
         $this->info('Done!');
     }

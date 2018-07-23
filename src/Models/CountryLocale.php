@@ -1,7 +1,7 @@
 <?php
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 /**
  * Country Locale
@@ -14,10 +14,11 @@ class CountryLocale extends Model
      * @var string
      */
     protected $table = 'world_countries_locale';
+    protected $collection = 'world_countries_locale';
 
     public function country()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class,'country_id','id');
     }
 
 }

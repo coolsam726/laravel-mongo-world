@@ -1,7 +1,7 @@
 <?php
-namespace Khsing\World\Models;
+namespace Coolsam\World\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 
 /**
@@ -15,6 +15,7 @@ class CityLocale extends Model
      * @var string
      */
     protected $table = 'world_cities_locale';
+    protected $collection = 'world_cities_locale';
 
     /**
      * return belonged City
@@ -23,6 +24,6 @@ class CityLocale extends Model
      */
     public function city()
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class,'city_id', 'id');
     }
 }
